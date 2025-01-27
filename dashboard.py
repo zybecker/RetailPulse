@@ -47,7 +47,7 @@ clustering_data = retail_data.groupby('Customer Name').agg({
 clustering_data.columns = ['Customer Name', 'Total Spend', 'Frequency']
 scaled_data = scaler.fit_transform(clustering_data[['Total Spend', 'Frequency']])
 
-kmeans = KMeans(n_clusters=4, random_state=4400, n_init=10)
+kmeans = KMeans(n_clusters=7, random_state=4400, n_init=10)
 clustering_data['Cluster'] = kmeans.fit_predict(scaled_data)
 
 #look at spending patterns for each segment
