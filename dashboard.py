@@ -26,9 +26,6 @@ retail_data['Profit'] = retail_data['Order Total'] - (retail_data['Cost Price'] 
 retail_data['Profit Margin'] = retail_data.apply(
     lambda row: (row['Profit'] / row['Order Total']) * 100 if row['Order Total'] > 0 else 0, axis=1)
 
-st.subheader("Sample of Profit Margin Calculation")
-st.dataframe(retail_data[['Order Total', 'Profit', 'Profit Margin']].head())
-
 #sales trends
 st.header("Sales Trends")
 sales_trends = filtered_data.groupby('Order Date')['Order Total'].sum().reset_index()
